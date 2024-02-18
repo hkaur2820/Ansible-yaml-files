@@ -1,0 +1,14 @@
+---
+ - name: Installing softwares using loops
+   hosts: all
+   become: yes
+   gather_facts: false
+   tasks:
+    - name: Softwares downloading
+      apt:
+        name: "{{item}}"
+        state: latest
+      loop:
+        - git
+        - htop
+        - python3
